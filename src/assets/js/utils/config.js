@@ -8,8 +8,8 @@ const nodeFetch = require("node-fetch");
 const convert = require('xml-js');
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 
-let config = `${url}/launcher/config-launcher/config.json`;
-let news = `${url}/launcher/news-launcher/news.json`;
+let config = `https://terrarpg.github.io/config/files/launcher/config-launcher/config.json`;
+let news = `https://terrarpg.github.io/config/files/launcher/news-launcher/news.json`;
 
 class Config {
     GetConfig() {
@@ -24,7 +24,7 @@ class Config {
     }
 
     async getInstanceList() {
-        let urlInstance = `${url}/files`
+        let urlInstance = `https://config-20dh.onrender.com/files/instances.json`
         let instances = await nodeFetch(urlInstance).then(res => res.json()).catch(err => err)
         let instancesList = []
         instances = Object.entries(instances)
